@@ -21,7 +21,7 @@ namespace AzMarketplaceLeads
         private static readonly string sendToEmail = Environment.GetEnvironmentVariable("SendToEmail");
 
         [FunctionName("CheckTableForLeads")]
-        public static async Task RunAsync([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer,
+        public static async Task RunAsync([TimerTrigger("0 0 */12 * * *")]TimerInfo myTimer,
             [Table("MarketplaceLeads", Connection = "StorageForLeads")] CloudTable marketplaceLeadsTable,
             [Table("LastRunDatetime", Connection = "StorageForLastExecDatetime")] CloudTable lastRunDatetimeTable,
             ILogger log)
